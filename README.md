@@ -1,10 +1,7 @@
 # Portfolios
 My personal stack of portfolios
-
 ## Description
 Training myself on new Web Technologies Stacks for improve as a profesional
-
-
 ## Execution Enviroment
 
 1. Open VSCode

@@ -1,0 +1,136 @@
+html {
+  /*scroll smooth into the all page, also could be applied to a specific element inside the document */ 
+   scroll-behavior: smooth;  }
+
+body {
+   background-color: #122b69;
+   margin: -0.5px;
+}
+
+body::-webkit-scrollbar {
+   overflow: hidden;
+   width: 0 !important
+}
+
+#name {
+   color: ghostwhite;
+   font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
+   font-weight: normal;
+   display: inline-block;
+
+}
+
+/* Style the navbar */
+#navbar {
+   overflow: auto;
+   padding: 0.5rem;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+   position: fixed;
+   top: 0;
+}
+
+#navbar #logo {
+   max-width: 100%;
+   height: auto;
+}
+
+/* Navbar links */
+#navbar a {
+   float: right;
+   margin-inline-end: 0.5rem;
+   color: ghostwhite;
+   text-align: center;
+   padding: 10px;
+   text-decoration: none;
+   font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+#picture {
+   border-radius: 50%;
+   width: 30%;
+   max-width: 100%;
+   height: auto;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+
+#title1, #title2, #title3, #title4, #title5 {
+   color: rgb(248, 30, 85);
+   font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
+   font-weight: bolder;
+   text-align: center;
+}
+
+#subtitle1, #subtitle2, #subtitle3, #subtitle4, #subtitle5 {
+   color: ghostwhite;
+   font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
+   font-weight: lighter;
+   text-align: center;
+}
+
+#cvdownload {
+   font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
+   color: ghostwhite;;
+   font-size: 15px;
+   background: transparent;
+   font-weight: 400;
+   margin-top: 1.5rem;
+   padding: 10px;
+   border:rgb(248, 30, 85) 2px solid;
+   
+}
+
+#cvdownload:hover {
+   background: rgb(248, 30, 85);
+   transition:  0.5s ease-in-out;
+   cursor: pointer;
+   font-size: 18px;
+}
+
+
+section {
+   margin: 30dvh 20dvw;  
+   
+}
+/*CANVAS BACKGROUND SECTION*/
+#canvas{
+   position:absolute;
+   left:0;
+   top:0;
+   z-index:-1;
+   width: 100%;
+   object-fit: contain;
+}
+
+/******************************/
+/*CSS Boton scroll Go to up*/
+#myBtn {
+   display: none;
+   position: fixed;
+   width: 40px;
+   height: 40px;
+   bottom: 15vh;
+   right: 30px;
+   font-size: 12px;
+   font-weight: 400;
+   font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
+   border-color: rgb(248, 30, 85);
+   outline: none;
+   background-color: transparent;
+   transition: all 0.5s ease;
+   color: #fff;
+   cursor: pointer;
+   border-radius: 50%;
+ }
+ #myBtn:hover {
+   background-color: rgb(248, 30, 85);
+   color: #fff;
+ }
+ /*CSS Boton scroll Go to up*/
+ /*********************************/
