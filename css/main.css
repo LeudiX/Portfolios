@@ -1,6 +1,13 @@
+
+* {
+   box-sizing: border-box;
+}
+
+
 html {
   /*scroll smooth into the all page, also could be applied to a specific element inside the document */ 
-   scroll-behavior: smooth;  }
+   scroll-behavior: smooth;  
+}
 
 body {
    background-color: #122b69;
@@ -37,6 +44,19 @@ body::-webkit-scrollbar {
    height: auto;
 }
 
+#navbar #name {
+   float: left;
+   margin-inline-end: 0.5rem;
+   color: rgb(248, 30, 85);
+   font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
+   font-size: 20px;
+}
+
+#navbar #name:hover{
+   color: ghostwhite;
+   transition: 0.25s ease-in;
+}
+
 /* Navbar links */
 #navbar a {
    float: right;
@@ -47,6 +67,11 @@ body::-webkit-scrollbar {
    text-decoration: none;
    font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
 
+}
+
+#navbar a:hover {
+   color: rgb(248, 30, 85);
+   transition: 0.25s ease-in;
 }
 
 #picture {
@@ -60,7 +85,7 @@ body::-webkit-scrollbar {
 }
 
 
-#title1, #title2, #title3, #title4, #title5 {
+ #title1, #subtitle12, #title2, #title3, #title4, #title5 {
    color: rgb(248, 30, 85);
    font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
    font-weight: bolder;
@@ -74,7 +99,7 @@ body::-webkit-scrollbar {
    text-align: center;
 }
 
-#cvdownload {
+#cvdownload, #projects1, #skills1, #about1, #contacts1 {
    font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
    color: ghostwhite;;
    font-size: 15px;
@@ -83,10 +108,13 @@ body::-webkit-scrollbar {
    margin-top: 1.5rem;
    padding: 10px;
    border:rgb(248, 30, 85) 2px solid;
+   margin-left: auto;
+   margin-right: auto;
+   display: block;
    
 }
 
-#cvdownload:hover {
+#cvdownload:hover, #projects1:hover, #skills1:hover, #about1:hover, #contacts1:hover {
    background: rgb(248, 30, 85);
    transition:  0.5s ease-in-out;
    cursor: pointer;

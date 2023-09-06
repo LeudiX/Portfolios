@@ -67,13 +67,13 @@ var sticky = navbar.offsetTop;
 function StickyNavbarAndScrollFunction() {
 
     if (window.scrollY > sticky) {
-        logo.setAttribute("src", "/imgs/logo12-bgnew.png");
+        /*logo.setAttribute("src", "/imgs/logo12-bgnew.png");*/
         navbar.style.backgroundColor = "#122b69";
         navbar.classList.add("sticky");
         mybutton.style.display = "block";
    
     } else {
-        logo.setAttribute("src", "/imgs/logo12.png");
+        /*logo.setAttribute("src", "/imgs/logo12.png");*/
         navbar.style.backgroundColor = "#081b4b";
         navbar.classList.remove("sticky");
         mybutton.style.display = "none";
