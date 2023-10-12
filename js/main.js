@@ -1,55 +1,13 @@
-/*******************************************************/
-/*CANVAS DRAW SECTION*/
-/*******************************************************/
-const section = document.getElementsByTagName("section");
-const title = document.getElementById("title1");
-var canvas = document.getElementById('canvas');
-
-
-/*section[0].insertBefore(canvas, title);*/  /*Inserting canvas before title component*/
-
-var context = canvas.getContext('2d');
-var W = window.innerWidth;
-var H = window.innerHeight;
-
-canvas.width = W;
-canvas.height = H;
-
-var fontSize = 15;
-var columns = Math.floor(W / fontSize);
-var drops = [];
-for (var i = 0; i < columns; i++) {
-    drops.push(0);
-}
-var str = "70v4$(51pt H4c61n& E{}3ct 8Y L3U)1X";
-function draw() {
-    context.fillStyle = "rgba(0,0,0,0.05)";
-    context.fillRect(0, 0, W, H);
-    context.fontSize = "700" + fontSize + "px";
-    context.fillStyle = "#009400";
-    for (var i = 0; i < columns; i++) {
-        var index = Math.floor(Math.random() * str.length);
-        var x = i * fontSize;
-        var y = drops[i] * fontSize;
-        context.fillText(str[index], x, y);
-        if (y >= canvas.height && Math.random() > 0.99) {
-            drops[i] = 0;
-        }
-        drops[i]++;
-    }
-}
-draw();
-setInterval(draw, 35);
 
 /****************************************************/
 /*NAVBAR STICKY ANIMATION*/
 /****************************************************/
 // Get the navbar and the logo
-var navbar = document.getElementById("navbar");
-var logo = document.getElementById("logo");
+const navbar = document.getElementById("navbar");
+const logo = document.getElementById("logo");
 
 //Get the button
-var mybutton = document.getElementById("myBtn");
+const mybutton = document.getElementById("myBtn");
 
 
 //default navbar backgroundcolor
@@ -69,12 +27,16 @@ function StickyNavbarAndScrollFunction() {
     if (window.scrollY > sticky) {
         /*logo.setAttribute("src", "/imgs/logo12-bgnew.png");*/
         navbar.style.backgroundColor = "#122b69";
+        navbar.style.borderBottomStyle = "none";
+        navbar.style.borderBottomColor = "none";
         navbar.classList.add("sticky");
         mybutton.style.display = "block";
-   
+
     } else {
         /*logo.setAttribute("src", "/imgs/logo12.png");*/
         navbar.style.backgroundColor = "#081b4b";
+        navbar.style.borderBottomStyle = "dashed";
+        navbar.style.borderBottomColor = "rgb(248, 30, 85)";
         navbar.classList.remove("sticky");
         mybutton.style.display = "none";
     }
@@ -83,18 +45,45 @@ function StickyNavbarAndScrollFunction() {
 /****************************************************/
 /*SCROLL BUTTON GO TO UP*/
 /****************************************************/
- // When the user clicks on the button, scroll to the top of the document
- function topFunction() {
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+}
+
+/******************************************************/
+/*CONTACT MODAL*/
+/******************************************************/
+// Get the contact modal
+var modal = document.getElementById("contactModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("contacts1");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
   }
- 
-  
- 
+}
 
- 
 
- 
+
+
+
 
 
 
