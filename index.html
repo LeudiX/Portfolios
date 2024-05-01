@@ -11,6 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest Compilated javascript library -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="/js/jquery.bgterminal.min.js"></script>
 </head>
@@ -34,86 +38,90 @@
         <!--<canvas id="canvas"></canvas>-->
         <div id="container1">
             <img id="picture" src="/imgs/profile.jpeg" alt="profile-logo">
-            <h1 id="title1">
+            <h3 id="title1">
                 Hi, I'm LeudiX
-                <h4 id="subtitle1">
+                <h5 id="subtitle1">
                     a software engineer with some skills<br>
                     in the development of games, webs and HCI systems...
-                </h4>
-            </h1>
-            <h3 id="subtitle12">
+                </h5>
+            </h3>
+            <h5 id="subtitle12">
                 Do you wanna know me better?
                 <br>
-            </h3>
+            </h5>
             <button id="cvdownload">See me CV </button>
         </div>
     </section>
     <section id="projects">
-        <h2 id="title2">
+        <h3 id="title2">
             #projects
-        </h2>
-        <h3 id="subtitle2">
-            Some stuff that i've done and others that i'm working on...
         </h3>
+        <h5 id="subtitle2">
+            Some stuff that i've done and others that i'm working on...
+        </h5>
         <button id="projects1">View all</button>
     </section>
     <section id="skills">
-        <h1 id="title3">
+        <h3 id="title3">
             #skills
-        </h1>
-        <h3 id="subtitle3">
-            Some of my habilities with tech stacks and frameworks...
         </h3>
+        <h5 id="subtitle3">
+            Some of my habilities with tech stacks and frameworks...
+        </h5>
         <button id="skills1">View all</button>
     </section>
     <section id="about">
-        <h1 id="title4">
+        <h3 id="title4">
             #about-me
-        </h1>
-        <h3 id="subtitle4">
-            Just a common guy that love to make code stuffs...
         </h3>
+        <h5 id="subtitle4">
+            Just a common guy that love to make code stuffs...
+        </h5>
         <button id="about1">View all</button>
     </section>
     <section id="contacts">
-        <h1 id="title5">
+        <h3 id="title5">
             #contacts
-        </h1>
-        <h3 id="subtitle5">
+        </h3>
+        <h5 id="subtitle5">
             I'm open to all kind of work opportunities. However,
             if you want to chat, you can reach me at...
-        </h3>
+        </h5>
         <!-- Trigger/Open The Contact Modal -->
-        <button id="contacts1">Contact me</button>
+        <button id="contacts1" type="button" data-bs-toggle="modal" data-bs-target="#contactModal">Contact me</button>
         <!-- The Contact Modal -->
-        <div id="contactModal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close">&times;</span>
-                    <h3>Lets get in touch. Send me a message:</h3>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="column">
-                            <form action="/action_page.php" autocomplete="off">
-                                <label for="fname">Name</label>
-                                <input type="text" id="fname" name="firstname" placeholder="Your name..">
-                                <label for="femail">Email</label>
-                                <input type="email" id="femail" name="email" placeholder="Your email..">
-                                <label for="fsubject">Subject</label>
-                                <input type="text" id="fsubject" name="subject" placeholder="Hi!..">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" placeholder="Write something.."
-                                    style="height:50px"></textarea>
-                            </form>
+        <div class="modal fade" id="contactModal">
+
+            <div class="modal-dialog modal-dialog-centered">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>Lets get in touch. Send me a message:</h5>
+                        <button type="button" class="btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="column">
+                                <form action="/action_page.php" autocomplete="off">
+                                    <label for="fname">Name</label>
+                                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                                    <label for="femail">Email</label>
+                                    <input type="email" id="femail" name="email" placeholder="Your email..">
+                                    <label for="fsubject">Subject</label>
+                                    <input type="text" id="fsubject" name="subject" placeholder="Hi!..">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" placeholder="Write something.."
+                                        style="height:50px"></textarea>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" id="contacts2" value="Send message">
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <input type="submit" id="contacts2" value="Send message">
-                    </div>
-
                 </div>
+            </div>
+        </div>
     </section>
     <button onclick="topFunction()" id="myBtn" title="Go to top">
         <i class="fa fa-angle-double-up"></i>
@@ -123,12 +131,13 @@
 
 <!--Placing the js files add the end so the pages load more faster-->
 <script src='/js/main.js'></script>
+<script src='/js/modals.js'></script>
 <script>
     $(document).ready(function () {
         $('#terminal').bgTerminal({
             url: 'index.html',
             glow: true,
-            speed: 100,
+            speed: 50,
             wait: 1000
         });
     });
