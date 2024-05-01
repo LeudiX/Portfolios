@@ -1,5 +1,5 @@
 # Portfolios
-My personal stack of portfolios
+My personal portfolio
 ## Description
 Training myself on new Web Technologies Stacks for improve as a profesional
 ## Execution Enviroment
