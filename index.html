@@ -33,9 +33,13 @@
             <a class="active" href="#home">#home</a>
         </div>
     </header>
-    <div id="terminal" style="z-index: -1;"></div>
+    <div class="row">
+        <div id="terminal" style="z-index: -1;" class="col-md-6 col-sm-12"></div>
+        <div id="terminal2" style="z-index: -1;" class="col-md-6 col-sm-12"></div>
+    </div>
+
     <section id="home">
-        <!--<canvas id="canvas"></canvas>-->
+        <div id="terminal2" style="z-index: -1;"></div>
         <div id="container1">
             <img id="picture" src="/imgs/profile.jpeg" alt="profile-logo">
             <h3 id="title1">
@@ -129,17 +133,42 @@
     </button>
 </body>
 
-<!--Placing the js files add the end so the pages load more faster-->
+<!--Placing the js files add the end so the pages load faster-->
 <script src='/js/main.js'></script>
 <script src='/js/modals.js'></script>
 <script>
-    $(document).ready(function () {
-        $('#terminal').bgTerminal({
+    /*function func1() {
+            $('#terminal').bgTerminal({
             url: 'index.html',
             glow: true,
-            speed: 50,
+            speed: 10,
             wait: 1000
         });
+        }
+       
+        function func2() {
+            $('#terminal2').bgTerminal({
+            url: '/backcodes/codelife.html',
+            glow: true,
+            speed: 10,
+            wait: 1000
+        });   
+    }
+*/
+    $(document).ready(function () {
+       
+        // Run the functions using the setTimeout function
+        // This will run the functions at the same time
+       /* setTimeout(func1, 0);
+        setTimeout(func2, 0);*/
+
+        const terminals = [$('#terminal'), $('#terminal2')].forEach(t => t.bgTerminal({
+        url: '/backcodes/codelife.html',
+        glow: true,
+        speed: 10,
+        wait: 1000
+    }));
+
     });
 </script>
 

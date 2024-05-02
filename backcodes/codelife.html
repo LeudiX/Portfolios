@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Sample algorithm for show as a background code-->
+    <title>Coding Life Algorithm</title>
+    <style>
+        .arrow {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .arrow::before {
+            content: '>';
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Coding Life Algorithm</h1>
+    <div id="algorithm"></div>
+    <script>
+        const algorithm = document.getElementById('algorithm');
+
+        const codingLife = new CodingLife();
+
+        function renderState(state) {
+            algorithm.innerHTML = `
+        <p>${state}</p>
+        <div class="arrow">${'>'}</div>
+      `;
+        }
+
+        codingLife.setGoals();
+    </script>
+</body>
+
+</html>
