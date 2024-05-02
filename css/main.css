@@ -31,7 +31,7 @@ body::-webkit-scrollbar {
    overflow: auto;
    padding: 0.5rem;
    border-bottom-style: dashed;
-   border-bottom-color: rgb(248, 30, 85);
+   border-bottom-color: rgb(255 69 0);
    transition: ease-in 0.1s;
 }
 
@@ -50,7 +50,7 @@ body::-webkit-scrollbar {
 #navbar #name {
    float: left;
    margin-inline-end: 0.5rem;
-   color: rgb(248, 30, 85);
+   color: rgb(255 69 0);
    font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
    font-size: 20px;
 }
@@ -73,7 +73,7 @@ body::-webkit-scrollbar {
 }
 
 #navbar a:hover {
-   color: rgb(248, 30, 85);
+   color: rgb(255 69 0);
    transition: 0.25s ease-in;
 }
 
@@ -94,7 +94,7 @@ body::-webkit-scrollbar {
 #title3,
 #title4,
 #title5 {
-   color: rgb(248, 30, 85);
+   color: rgb(255 69 0);
    font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
    font-weight: bolder;
    text-align: center;
@@ -123,7 +123,7 @@ body::-webkit-scrollbar {
    background: transparent;
    font-weight: 400;
    padding: 10px;
-   border: rgb(248, 30, 85) 2px solid;
+   border: rgb(255 69 0) 2px solid;
    margin-left: auto;
    margin-right: auto;
    display: block;
@@ -136,7 +136,7 @@ body::-webkit-scrollbar {
 #about1:hover,
 #contacts1:hover,
 #contacts2:hover {
-   background: rgb(248, 30, 85);
+   background: rgb(255 69 0);
    transition: 0.5s ease-in-out;
    cursor: pointer;
    font-size: 18px;
@@ -146,7 +146,7 @@ body::-webkit-scrollbar {
 section {
    margin: 5dvh 10dvw;
    border-style: dashed;
-   border-color: rgb(248, 30, 85);
+   border-color: rgb(255 69 0);
    padding: 5vh 10vh;
    background-color: rgb(18, 43, 105, 0.7);
 }
@@ -173,7 +173,7 @@ section {
    font-size: 12px;
    font-weight: 400;
    font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
-   border-color: rgb(248, 30, 85);
+   border-color: rgb(255 69 0);
    outline: none;
    background-color: transparent;
    transition: all 0.5s ease;
@@ -183,7 +183,7 @@ section {
 }
 
 #myBtn:hover {
-   background-color: rgb(248, 30, 85);
+   background-color: rgb(255 69 0);
    color: #fff;
 }
 
@@ -207,16 +207,16 @@ section {
 
 .close:hover,
 .close:focus {
-   color: rgb(248, 30, 85);
+   color: rgb(255 69 0);
    text-decoration: none;
    cursor: pointer;
 }
 
 /* Modal Header */
 .modal-header {
-   padding: 2px 16px;
+   padding: 10px 16px;
    background-color: #081b4b !important;
-   color: rgb(248, 30, 85);
+   color: rgb(255 69 0);
    text-align: center;
 }
 
@@ -229,21 +229,20 @@ section {
 .modal-footer {
    padding: 10px 16px;
    background-color: #122b69 !important;
-   color: rgb(248, 30, 85);
+   color: rgb(255 69 0);
 }
 
 /* Modal Content */
 .modal-content {
-   color: ghostwhite;
-   font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
-   ;
+   color: ghostwhite !important;
+   font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;;
    position: relative;
    background-color: #122b69 !important;
    margin: auto;
    padding: 0;
-   border-color: rgb(248, 30, 85) !important;
-   border-style: dashed !important; 
-   width: 80%;
+   border-color: rgb(255 69 0) !important;
+   border-width: 3px;
+   border-style: dashed !important;
    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 

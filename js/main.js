@@ -36,7 +36,7 @@ function StickyNavbarAndScrollFunction() {
         /*logo.setAttribute("src", "/imgs/logo12.png");*/
         navbar.style.backgroundColor = "#081b4b";
         navbar.style.borderBottomStyle = "dashed";
-        navbar.style.borderBottomColor = "rgb(248, 30, 85)";
+        navbar.style.borderBottomColor = "rgb(255 69 0)";
         navbar.classList.remove("sticky");
         mybutton.style.display = "none";
     }
