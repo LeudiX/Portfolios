@@ -167,54 +167,9 @@
             console.info('All promises resolved');
         });
     });
-</script>
-<script>
-    // Create an array of animations
-    const settings = [
-        {
-            url: '/backcodes/codelife.html',
-            glow: true,
-            speed: 25,
-            wait: 0,
-        },
-        {
-            url: '/css/main.css',
-            glow: true,
-            speed: 25,
-            wait: 0,
-        },
-        {
-            url: '/js/jquery.bgterminal.js',
-            glow: true,
-            speed: 25,
-            wait: 0,
-        }
-    ];
-
-    async function createTerminalInstance(container, settings) {
-        // Initialize the terminal plugin with the array of animations
-        return new Promise((resolve) => {
-            $(container).bgTerminal({
-                url: settings.url, // The page to load and display in the terminal
-                glow: settings.glow, // If true, the terminal will have a glowing effect
-                speed: settings.speed, // Type speed in milliseconds. This is the time between two character are typed
-                wait: settings.wait, // The number of milliseconds to wait at the end of the line (when \n is found)
-            });
-            resolve();
-        })
-    }
-
-    $(document).on('ready', function () {
-        settings.forEach(s => {
-            createTerminalInstance('#terminal', s).then(()=>{
-                createTerminalInstance('#terminal2',s)
-            });
-            console.log(s);
-        });
-    })
 </script>-->
 <script>
-    // Observer pattern implementation
+    // Observer pattern implementation Following SOLID Principles
     class Observer {
         constructor() {
             this.observers = [];
@@ -229,7 +184,7 @@
         }
     }
 
-    // Create an array of animations
+    // Create an array of settings
     const settings = [
         {
             url: '/backcodes/codelife.html',
@@ -245,38 +200,76 @@
         }
     ]
 
-
-    // Background animation function
-    async function bgTerminal(container, settings) {
-        // Your animation logic here
-        console.log(`Animation started: ${container}`);
+    function hidebgTerminal(container) {
+        console.log(`Hidding terminal ${container} in 1 min`);
         return new Promise((resolve => {
-            $(container).bgTerminal({
-                url: settings.url, // The page to load and display in the terminal
-                glow: settings.glow, // If true, the terminal will have a glowing effect
-                speed: settings.speed, // Type speed in milliseconds. This is the time between two character are typed
-                wait: settings.wait, // The number of milliseconds to wait at the end of the line (when \n is found)
-            });
-            resolve();
-            console.log(`Animation finished: ${container}`);
-
+            setTimeout(function () {
+                resolve(
+                    //$(container).bgTerminal(""),
+                    $(container).addClass('bgterminal-hide'),
+                    console.log(`Terminal hidded in ${container}`),
+                    console.log(`Cleaning 1st container`),
+                  );
+            }, 0.9 * 60 * 1000);
         }))
     }
 
-    // Queue of promises
-    const queue = [
-        () => bgTerminal('terminal', settings[0]),
-        () => bgTerminal('terminal2', settings[1]),
-    ];
+    function showbgTerminal(container) {
+        return new Promise((resolve => {
+            setTimeout(function () {
+                resolve(
+                    console.log(`Showing terminal in ${container}`),
+                    $(container).removeClass('bgterminal-hide'),
+                    $(container).addClass('bgterminal-show'),
+                    console.log(`Terminal is now visible in ${container}`)
+                );
+            }, 1 * 60 * 1000)
+        }))
+    }
+
+    // Background animation function
+    function bgTerminal(container, settings) {
+        // Your animation logic here
+        console.log(`Animation started: ${container}`);
+        return new Promise((resolve => {
+            setTimeout(function () {
+                resolve(
+                    $(container).bgTerminal({
+                        url: settings.url, // The page to load and display in the terminal
+                        glow: settings.glow, // If true, the terminal will have a glowing effect
+                        speed: settings.speed, // Type speed in milliseconds. This is the time between two character are typed
+                        wait: settings.wait, // The number of milliseconds to wait at the end of the line (when \n is found)
+                    })
+                )
+            }, 2000);
+        }))
+    }
+
+    async function asyncCall(container) {
+        // Queue of promises
+        const queue = [];
+        console.log('Calling animation');
+        queue.push(await bgTerminal(container, settings[0])); //Wait 2 secs then execute bgTerminal
+        queue.push(await hidebgTerminal(container)); //Wait 0.9 min then execute hidebgTerminal
+        queue.push(await showbgTerminal(container)); //Wait 1 min then execute showbgTerminal  
+        
+        $(container).empty(); //removes not only child (and other descendant) elements, but also any text within the set of matched elements
+             
+        queue.push(await bgTerminal(container, settings[1]));
+        queue.push(await hidebgTerminal(container));
+        queue.push(await showbgTerminal(container));
+
+        //Subscribe to the observer
+        queue.forEach((promise) => animationObserver.subscribe(promise));
+        console.log(`Animation finished`);
+    }
 
     // Create an observer to manage the animation queue
     const animationObserver = new Observer();
-
-    // Subscribe to the observer
-    queue.forEach((promise) => animationObserver.subscribe(promise));
-
-    // Notify the observer to start the animation
+    asyncCall('#terminal'); //Calling the Queue of promises
+    // Notify the observer to start the bgTerminal animation
     animationObserver.notify();
+
 </script>
 <script src='/js/main.js'></script>
 <script src='/js/modals.js'></script>

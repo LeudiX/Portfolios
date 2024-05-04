@@ -16,7 +16,7 @@
             url: null,
             speed: 200,
             wait: 1000,
-            glow: false
+            glow: false,
         }, options );
 
         function _emulateTerminal() {

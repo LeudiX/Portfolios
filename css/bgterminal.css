@@ -1,15 +1,37 @@
 @keyframes glow {
-	0% {color: rgba(50,250,50,0.4);}
-	25% {color: rgba(50,250,50,0.5);}
-	50% {color: rgba(50,250,50,0.4);}
-	100% {color: rgba(50,250,50,0.4);}
+	0% {
+		color: rgba(50, 250, 50, 0.4);
+	}
+
+	25% {
+		color: rgba(50, 250, 50, 0.5);
+	}
+
+	50% {
+		color: rgba(50, 250, 50, 0.4);
+	}
+
+	100% {
+		color: rgba(50, 250, 50, 0.4);
+	}
 }
 
 @-webkit-keyframes glow {
-	0% {color: rgba(50,250,50,0.4);}
-	25% {color: rgba(50,250,50,0.5);}
-	50% {color: rgba(50,250,50,0.4);}
-	100% {color: rgba(50,250,50,0.4);}
+	0% {
+		color: rgba(50, 250, 50, 0.4);
+	}
+
+	25% {
+		color: rgba(50, 250, 50, 0.5);
+	}
+
+	50% {
+		color: rgba(50, 250, 50, 0.4);
+	}
+
+	100% {
+		color: rgba(50, 250, 50, 0.4);
+	}
 }
 
 .bgterminal {
@@ -18,7 +40,7 @@
 	top: 12vh;
 	bottom: 0;
 	right: 0;
-	color: rgba(50,250,50,0.1);
+	color: rgba(50, 250, 50, 0.1);
 	/*white-space: pre-wrap;
 	white-space: -moz-pre-wrap;
 	white-space: -o-pre-wrap;*/
@@ -44,6 +66,18 @@
 	animation-iteration-count: infinite;
 	-webkit-animation-iteration-count: infinite;
 }
+
+/*Hide the animation*/
+.bgterminal-hide {
+	opacity: 0;
+	transition: opacity 5s;
+}
+
+/*Show the animation */
+.bgterminal-show {
+	opacity: 1;
+	transition: opacity 5s;
+  }
 
 .bgterminal .cursor {
 	background: rgba(50, 250, 50, 0.3);
