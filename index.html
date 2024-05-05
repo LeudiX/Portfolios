@@ -205,6 +205,7 @@
         return new Promise((resolve => {
             setTimeout(function () {
                 resolve(
+                    $(container).removeClass('bgterminal-show'),
                     $(container).addClass('bgterminal-hide'),
                     console.log(`Terminal hidded in ${container}`),
                   );
@@ -276,7 +277,10 @@
 
     // Create an observer to manage the animation queue
     const animationObserver = new Observer();
-    asyncCall('#terminal');
+    asyncCall('#terminal').then(()=>{
+        asyncCall('#terminal2');
+    });
+    
     //setInterval(asyncCall('#terminal','#terminal2'),2*60*1000); //Tryin to call the Queue of promises every 2 mins
     // Notify the observer to start the bgTerminal animation
     animationObserver.notify();
