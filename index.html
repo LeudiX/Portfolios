@@ -32,9 +32,10 @@
             <a class="active" href="#home">#home</a>
         </div>
     </header>
-    <div class="row" id="containerRow">
-        <!--<div id="terminal" style="z-index: -1; left: 10px;" class="col-md-6 col-sm-12"></div>
-        <div id="terminal2" style="z-index: -1;" class="col-md-6 col-sm-12"></div>-->
+    <div class="row">
+        <div class='col-md-2 col-sm-1'></div>
+        <div id="containerRow" class='col-md-8 col-sm-12'></div>
+        <div class='col-md-2 col-sm-1'></div>
     </div>
     <section id="home">
         <div id="container1">
@@ -185,7 +186,7 @@
     }
 
     // Create an array of settings
-    const settings = [
+    const $settings = [
         {
             url: '/backcodes/codelife.html',
             glow: true,
@@ -197,28 +198,32 @@
             glow: true,
             speed: 25,
             wait: 0,
+        },
+        {
+
         }
     ]
 
     //Containers to be handle by bgTerminal
-    const $terminal = $("<div id='terminal' style='z-index: -1; left: 10px;' class='col-md-6 col-sm-12'></div>");
-    const $terminal2 = $("<div id='terminal2' style='z-index: -1;'' class='col-md-6 col-sm-12'></div>");
+    const $terminal = $("<div id='terminal' style='z-index: -1;'></div>");
+    const $terminal2 = $("<div id='terminal2' style='z-index: -1;'></div>");
+    const $terminal3 = $("<div id='terminal3' style='z-index: -1;'></div>");
+    const $terminal4 = $("<div id='terminal4' style='z-index: -1;'></div>");
 
-
-    function hidebgTerminal(container) {
-        console.log(`Hidding terminal in ${container} container. 1 min left!!!`);
+    function hidebgTerminal(container, ms) {
         return new Promise((resolve => {
             setTimeout(function () {
                 resolve(
+                    console.log(`Hidding terminal in ${container} container!!`),
                     $(container).removeClass('bgterminal-show'),
                     $(container).addClass('bgterminal-hide'),
-                    console.log(`Terminal hidded in ${container} container`),
+                    console.log(`Terminal hidded in ${container} container.Wait 20 secs`),
                 );
-            }, 1 * 60 * 1000);
+            }, ms);
         }))
     }
 
-    function showbgTerminal(container) {
+    function showbgTerminal(container, ms) {
         return new Promise((resolve => {
             setTimeout(function () {
                 resolve(
@@ -227,39 +232,46 @@
                     $(container).addClass('bgterminal-show'),
                     console.log(`Terminal is now visible in ${container} container`)
                 );
-            }, 0.5 * 60 * 1000)
+            }, ms)
         }))
     }
 
-    function cleanContainer(container) {
+    function cleanContainer(container, ms) {
         return new Promise((resolve => {
             setTimeout(function () {
                 resolve(
                     console.log(`Cleaning ${container} container`),
-                    $(container).empty(), //Cleaning container
+                    $(container).empty(), //Waiting 5 secs before Cleaning container
                     console.log(`Container ${container} cleaned`),
                     console.log(`Removing container ${container} from containerRow component`),
                     $(container).remove(),
                     console.log(`Container ${container} removed from containerRow component`)
                 );
-            }, 2500)
+            }, ms)
         }))
     }
 
-    function createContainer(container){
-        return new Promise((resolve=>{
-            setTimeout(function(){
+    function createContainer(container, ms) {
+        return new Promise((resolve => {
+            setTimeout(function () {
                 resolve(
-                    console.log(`Adding container `+$(container).prop("id")+` to containerRow component`),
+                    console.log(`Adding container ` + `#` + $(container).prop("id") + ` to containerRow component`),
                     $('#containerRow').append(container),
-                    console.log(`Container `+$(container).prop("id")+` successfully added to containerRow component`)
+                    $(container).removeClass('bgterminal-hide'),
+                    $(container).removeClass('bgterminal-show'),
+                    console.log(`Container ` + `#` + $(container).prop("id") + ` successfully added to containerRow component`)
                 );
-            },500)
+            }, ms)
         }))
+    }
+
+    //Putting thread to sleep 
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
     }
 
     // Background animation function
-    function bgTerminal(container, settings) {
+    function bgTerminal(container, settings, ms) {
         // Your animation logic here
         console.log(`Animation started in ${container} container`);
         return new Promise((resolve => {
@@ -272,28 +284,44 @@
                         wait: settings.wait, // The number of milliseconds to wait at the end of the line (when \n is found)
                     })
                 )
-            }, 2000);
+            }, ms);
         }))
     }
 
-    async function asyncCall(container, terminal) {
+    async function asyncCall(terminal, settings) {
         // Queue of promises
         const queue = [];
+
+        let idContainer1 = $(terminal).prop("id");
+
         console.log('Starting bgTerminal animation process');
 
-        console.log('Creating container!!!')
-        queue.push(await createContainer(terminal));
-        queue.push(await bgTerminal(container, settings[0])); //Wait 2 secs then execute bgTerminal
-        queue.push(await hidebgTerminal(container)); //Wait 1 min then execute hidebgTerminal
-        queue.push(await showbgTerminal(container)); //Wait 0.5 min after the hidebgTerminal executes itself and then execute showbgTerminal  
-        queue.push(await cleanContainer(container)); //Wait 5 secs after the showbgTerminal executes itself and then removes its owns childs, descendant and text on container 1 
+        queue.push(await createContainer(terminal, 500));
+        queue.push(await bgTerminal('#' + idContainer1, settings[0], 2000)); //Wait 2 secs then execute bgTerminal
+        queue.push(await hidebgTerminal('#' + idContainer1, 1 * 60 * 1000)); //Wait 1 min then execute hidebgTerminal
+        queue.push(await showbgTerminal('#' + idContainer1, 20000)); //Wait 0.5 min after the hidebgTerminal executes itself and then execute showbgTerminal  
+        queue.push(await hidebgTerminal('#' + idContainer1, 10000));
+        queue.push(await cleanContainer('#' + idContainer1, 10000));
 
-        queue.push(await createContainer(terminal));
-        queue.push(await bgTerminal(container, settings[1]));
-        queue.push(await hidebgTerminal(container));
-        queue.push(await showbgTerminal(container));
-        queue.push(await cleanContainer(container)); //removes childs, descendant and text on container 2 
-        //Subscribe to the observer
+        queue.push(await sleep(5000)); //Putting thread to sleep without block JavaScript’s execution thread 
+
+        queue.push(await createContainer(terminal, 500));
+        queue.push(await bgTerminal('#' + idContainer1, settings[1], 2000));
+        queue.push(await hidebgTerminal('#' + idContainer1, 1 * 60 * 1000));
+        queue.push(await showbgTerminal('#' + idContainer1, 20000));
+        queue.push(await hidebgTerminal('#' + idContainer1, 10000));
+        queue.push(await cleanContainer('#' + idContainer1, 10000)); //removes childs, descendant and text on container 2 
+
+        //Subscribe to the observer and remove from the queue of promises(Testing)
+        /*queue.forEach((promise) => {
+            animationObserver.subscribe(promise);
+            // Remove the item from the queue
+            const index = queue.indexOf(promise);
+            if (index !== -1) {
+                queue.splice(index, 1);
+                console.log(`Element at index ` + index + ` removed from queue`)
+            }
+        })*/
         queue.forEach((promise) => animationObserver.subscribe(promise));
         console.log(`bgTerminal animation process finished`);
     }
@@ -301,10 +329,12 @@
     //Create an observer to manage the animation queue
     const animationObserver = new Observer();
 
-    //Starting bgTerminal animation process secuence
-    asyncCall('#terminal',$terminal).then(() => {
-        asyncCall('#terminal2',$terminal2);
+    //Starting bgTerminal animation process secuence 1st Way
+    asyncCall($terminal, $settings).then(() => {
+        asyncCall($terminal2, $settings)
     });
+
+    //delayedbgTerminalAnimationProcess();
 
     // Notify the observer to start the bgTerminal animation
     animationObserver.notify();
