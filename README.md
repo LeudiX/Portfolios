@@ -1,7 +1,18 @@
 # Portfolios
-My personal portfolio
+
+Wlecome to My personal portfolio 👋💓🖖
+
 ## Description
-Training myself on new Web Technologies Stacks for improve as a profesional
+
+BgTerminal style Portfolio with some minimalist, cool animations and stufff...
+
+## Features
+
+- Added some cool bgTerminal animations with my own salt (Async task scheduler for animations)🥲😁✨🪄
+- Added some cool animations to the website💪😂😅
+- Backend with Django framework in order to manage my own information(Coming soon XD)😝
+
+
 ## Execution Enviroment
 
 1. Open VSCode

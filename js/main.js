@@ -51,7 +51,6 @@ function StickyNavbarAndScrollFunction() {
         mybutton.style.display = "none";
     }
 }
-
 /****************************************************/
 /*SCROLL BUTTON GO TO UP*/
 /****************************************************/
@@ -60,12 +59,3 @@ function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
-
-
-
-
-
-
-
-
-

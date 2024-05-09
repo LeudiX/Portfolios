@@ -36,14 +36,13 @@
 
 .bgterminal {
 	/*position: fixed;*/
-	/*left: 0;*/
 	top: 12vh;
 	bottom: 0;
 	right: 0;
 	color: rgba(50, 250, 50, 0.1);
-	/*white-space: pre-wrap;
+	white-space: pre-wrap;
 	white-space: -moz-pre-wrap;
-	white-space: -o-pre-wrap;*/
+	white-space: -o-pre-wrap;
 	font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
 	font-size: 12px;
 	z-index: 0;

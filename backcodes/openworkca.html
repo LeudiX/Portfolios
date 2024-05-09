@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<!--
+    ____        _                    _ ___   __
+   |  _ \      | |                  | (_) \ / /
+   | |_) |_   _| |     ___ _   _  __| |_ \ V / 
+   |  _ <| | | | |    / _ \ | | |/ _` | | > <  
+   | |_) | |_| | |___|  __/ |_| | (_| | |/ . \ 
+   |____/ \__, |______\___|\__,_|\__,_|_/_/ \_\
+           __/ |                               
+          |___/                                
+  -->
+<head>
+    <!--Sample algorithm for show as a background code-->
+    <title>Open Work Permit Canada Algorithm</title>
+</head>
+
+<body>
+    <!-- The main container -->
+    <div class="algorithm-container">
+        <!-- The steps container -->
+        <div class="steps-container">
+            <!-- Step 1 -->
+            <div class="step step-1">
+                <div class="card">
+                    <h2>Step 1: Research and Eligibility</h2>
+                    <p>Check if you meet the eligibility criteria for an Open Work Permit.</p>
+                </div>
+                <div class="arrow arrow-1">-></div>
+            </div>
+            <!-- Step 2 -->
+            <div class="step step-2">
+                <div class="card">
+                    <h2>Step 2: Job Offer and Labour Market Impact Assessment</h2>
+                    <p>Get a job offer from a Canadian employer and undergo a Labour Market Impact Assessment (LMIA).
+                    </p>
+                </div>
+                <div class="arrow arrow-2">-></div>
+            </div>
+            <!-- Step 3 -->
+            <div class="step step-3">
+                <div class="card">
+                    <h2>Step 3: Apply for an LMIA</h2>
+                    <p>Apply for an LMIA with Immigration, Refugees and Citizenship Canada (IRCC).</p>
+                </div>
+                <div class="arrow arrow-3">-></div>
+            </div>
+            <!-- Step 4 -->
+            <div class="step step-4">
+                <div class="card">
+                    <h2>Step 4: Apply for an Open Work Permit</h2>
+                    <p>Apply for an Open Work Permit with IRCC.</p>
+                </div>
+                <div class="arrow arrow-4">-></div>
+            </div>
+            <!-- Step 5 -->
+            <div class="step step-5">
+                <div class="card">
+                    <h2>Step 5: Enter Canada and Start Working</h2>
+                    <p>Enter Canada and start working with your new employer.</p>
+                </div>
+                <div class="arrow arrow-5">-></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const steps = document.querySelectorAll('.step');
+
+    steps.forEach((step, index) => {
+        const card = step.querySelector('.card');
+        const arrow = step.querySelector('.arrow');
+
+        // Animate the arrow
+        arrow.style.transform = `translateX(${index * 20}px)`;
+
+        // Glow the border of the card
+        card.style.border = `1px solid #ff69b4`;
+        card.style.boxShadow = `0 0 10px rgba(0, 0, 0, 0.1)`;
+
+        // Add a transition effect to the animation
+        card.style.transition = `border-color 0.5s ease-out`;
+        arrow.style.transition = `transform 0.5s ease-out`;
+    });
+</script>
+<html>
