@@ -155,35 +155,34 @@ async function asyncCall(terminal, settings) {
     queue.push(await hidebgTerminal('#' + idContainer1, 1 * 60 * 1000)); //Wait 1 min then execute hidebgTerminal
     queue.push(await showbgTerminal('#' + idContainer1, 10000)); //Wait 0.5 min after the hidebgTerminal executes itself and then execute showbgTerminal  
     queue.push(await hidebgTerminal('#' + idContainer1, 10000));
-    queue.push(await clearContainer('#' + idContainer1, 10000)); //removes childs, descendant and text on container 1
+    queue.push(await clearContainer('#' + idContainer1, 8000)); //removes childs, descendant and text on container 1
     console.log(`bgTerminal animation process finished in terminal ` + $(terminal).prop("id"));
 
-    //queue.push(await sleep(5000)); //Putting thread to sleep without block JavaScript’s execution thread 
-
-    /*console.log(`Starting bgTerminal animation process in ` + $(terminal2).prop("id"));
-    queue.push(await createContainer(terminal2, 500));
-    queue.push(await bgTerminal('#' + idContainer2, settings2, 2000));
-    queue.push(await hidebgTerminal('#' + idContainer2, 1 * 60 * 1000));
-    queue.push(await showbgTerminal('#' + idContainer2, 20000));
-    queue.push(await hidebgTerminal('#' + idContainer2, 10000));
-    queue.push(await cleanContainer('#' + idContainer2, 10000)); //removes childs, descendant and text on container 2 
-    */
     queue.forEach((promise) => animationObserver.subscribe(promise));
-    //console.log(`bgTerminal animation process finished in terminal ` + $(terminal2).prop("id"));
 }
 
-function bgTerminalAnimationProcess() {
-
+async function bgTerminalAnimationProcess() {
+    
+    //Starting bgTerminal animation 1st process secuence
     asyncCall($terminal, $settings[1]).then(() => {
         asyncCall($terminal2, $settings[2])
     })
-    //Starting bgTerminal animation 1st process secuence
-    //Sleeping thread for 1min
-    //await sleep(1 * 60 * 1000);
 
-    /*asyncCall($terminal3, $settings[2]).then(() => {
-        asyncCall($terminal4, $settings[3])
-    });*/
+    //Sleeping thread for 1min
+    await sleep(1.5 * 60 * 1000);
+    
+    //Starting bgTerminal animation 2nd process secuence
+    asyncCall($terminal3, $settings[1]).then(() => {
+        asyncCall($terminal4, $settings[0])
+    });
+
+    //Sleeping thread for 1.5min
+    await sleep(1.5* 60 * 1000);
+
+    //Starting bgTerminal animation 2nd process secuence
+    asyncCall($terminal, $settings[1]).then(() => {
+        asyncCall($terminal2, $settings[2])
+    });
 }
 
 //Create an observer to manage the animation queue
