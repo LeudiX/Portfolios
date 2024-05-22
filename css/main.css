@@ -1,3 +1,14 @@
+/*
+   ____        _                    _ ___   __
+  |  _ \      | |                  | (_) \ / /
+  | |_) |_   _| |     ___ _   _  __| |_ \ V / 
+  |  _ <| | | | |    / _ \ | | |/ _` | | > <  
+  | |_) | |_| | |___|  __/ |_| | (_| | |/ . \ 
+  |____/ \__, |______\___|\__,_|\__,_|_/_/ \_\
+          __/ |                               
+         |___/                                
+ */
+
 * {
    box-sizing: border-box;
 }
@@ -147,7 +158,8 @@ section {
    border-style: dashed;
    border-color: rgb(255 69 0);
    padding: 5vh 10vh;
-   background-color: rgb(18, 43, 105, 0.7);
+   background-color: rgb(18, 43, 105, 0.5);
+   /*backdrop-filter: blur(1px);*/
 }
 
 /*CANVAS BACKGROUND SECTION*/

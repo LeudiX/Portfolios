@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <!--
+<!--
     ____        _                    _ ___   __
    |  _ \      | |                  | (_) \ / /
    | |_) |_   _| |     ___ _   _  __| |_ \ V / 
@@ -10,6 +10,7 @@
            __/ |                               
           |___/                                
   -->
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -32,7 +33,7 @@
         <div id="navbar">
             <!--<img id="logo" src="/imgs/logo12.png" alt="bussiness-logo">-->
             <a id="name" href="https://github.com/LeudiX">
-                LeudiX
+              {%LeudiX%}
             </a>
             <a href="#contacts">#contacts</a>
             <a href="#about">#about</a>
@@ -100,40 +101,39 @@
         </h5>
         <!-- Trigger/Open The Contact Modal -->
         <button id="contacts1" type="button" data-bs-toggle="modal" data-bs-target="#contactModal">Contact me</button>
-        <!-- The Contact Modal -->
-        <div class="modal fade" id="contactModal">
-
-            <div class="modal-dialog modal-dialog-centered">
-                <!-- Modal content -->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5>Hi!!!. Send me a message:</h5>
-                        <button type="button" class="btn-close-white" data-bs-dismiss="modal"></button>
+    </section>
+    <!-- The Contact Modal -->
+    <div class="modal fade" id="contactModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Hi!!!. Send me a message:</h5>
+                    <button type="button" class="btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="column">
+                            <form action="/action_page.php" autocomplete="off">
+                                <label for="fname">Name</label>
+                                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                                <label for="femail">Email</label>
+                                <input type="email" id="femail" name="email" placeholder="Your email..">
+                                <label for="fsubject">Subject</label>
+                                <input type="text" id="fsubject" name="subject" placeholder="Hi!..">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" placeholder="Write something.."
+                                    style="height:50px"></textarea>
+                            </form>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="column">
-                                <form action="/action_page.php" autocomplete="off">
-                                    <label for="fname">Name</label>
-                                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
-                                    <label for="femail">Email</label>
-                                    <input type="email" id="femail" name="email" placeholder="Your email..">
-                                    <label for="fsubject">Subject</label>
-                                    <input type="text" id="fsubject" name="subject" placeholder="Hi!..">
-                                    <label for="message">Message</label>
-                                    <textarea id="message" name="message" placeholder="Write something.."
-                                        style="height:50px"></textarea>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <input type="submit" id="contacts2" value="Send message">
-                        </div>
+                    <div class="modal-footer">
+                        <input type="submit" id="contacts2" value="Send message">
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
     <button onclick="topFunction()" id="myBtn" title="Go to top">
         <i class="fa fa-angle-double-up"></i>
         Up

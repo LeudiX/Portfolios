@@ -8,7 +8,6 @@
           __/ |                               
          |___/                                
  */
-
 // Observer pattern implementation
 // Observer pattern implementation Following SOLID Principles
 class Observer {
@@ -44,20 +43,14 @@ const $settings = [
         glow: true,
         speed: 25,
         wait: 0,
-    },
-    {
-        url: '/js/animations.js',
-        glow: true,
-        speed: 25,
-        wait: 0,
     }
 ]
 
 //Containers to be handle by bgTerminal
-const $terminal = $("<div id='terminal' class='col-md-5 col-sm-5' style='z-index: -1;float:left;'></div>");
-const $terminal2 = $("<div id='terminal2' class='col-md-5 col-sm-5' style='z-index: -1;float:right;'></div>");
-const $terminal3 = $("<div id='terminal3' class='col-md-5 col-sm-5' style='z-index: -1;float:left;'></div>");
-const $terminal4 = $("<div id='terminal4' class='col-md-5 col-sm-5' style='z-index: -1;float:right;'></div>");
+const $terminal = $("<div id='terminal' class='col-md-10 col-sm-10'></div>");
+const $terminal2 = $("<div id='terminal2' class='col-md-5 col-sm-5' style='float:right;'></div>");
+const $terminal3 = $("<div id='terminal3' class='col-md-5 col-sm-5' style='float:left;'></div>");
+const $terminal4 = $("<div id='terminal4' class='col-md-10 col-sm-10'></div>");
 
 //Hide bgTerminal after a period of Time
 function hidebgTerminal(container, ms) {
@@ -141,9 +134,9 @@ function bgTerminal(container, settings, ms) {
             )
         }, ms)
     })
-
 }
 
+//Handling animation secuence
 async function asyncCall(terminal, settings) {
     // Queue of promises
     const queue = [];
@@ -161,28 +154,27 @@ async function asyncCall(terminal, settings) {
     queue.forEach((promise) => animationObserver.subscribe(promise));
 }
 
+//Scheduling animation secuence process
 async function bgTerminalAnimationProcess() {
     
     //Starting bgTerminal animation 1st process secuence
-    asyncCall($terminal, $settings[1]).then(() => {
+   asyncCall($terminal, $settings[1]).then(() => {
         asyncCall($terminal2, $settings[2])
     })
 
-    //Sleeping thread for 1min
+    //Sleeping thread for 1.5 min
     await sleep(1.5 * 60 * 1000);
     
     //Starting bgTerminal animation 2nd process secuence
-    asyncCall($terminal3, $settings[1]).then(() => {
-        asyncCall($terminal4, $settings[0])
+    asyncCall($terminal3, $settings[1]).then(()=>{
+        asyncCall($terminal4,$settings[0])
     });
 
-    //Sleeping thread for 1.5min
+    //Sleeping thread for 1.5 min
     await sleep(1.5* 60 * 1000);
 
-    //Starting bgTerminal animation 2nd process secuence
-    asyncCall($terminal, $settings[1]).then(() => {
-        asyncCall($terminal2, $settings[2])
-    });
+    //Forcing bgTerminal animation execution according with 2nd part of 2nd process secuence
+    bgTerminal(`#terminal`, $settings[1],0)
 }
 
 //Create an observer to manage the animation queue
@@ -191,5 +183,8 @@ const animationObserver = new Observer();
 //Executing bgTerminal animation process
 bgTerminalAnimationProcess();
 
-// Notifying the observer to start the bgTerminal animation
+//Excuting bgTerminal animation secuence process every 5mins
+setInterval(bgTerminalAnimationProcess, 5*60*1000)
+
+//Notifying the observer to start the bgTerminal animation
 animationObserver.notify();
