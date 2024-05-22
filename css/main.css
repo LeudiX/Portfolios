@@ -29,14 +29,6 @@ body::-webkit-scrollbar {
    width: 0 !important
 }
 
-#name {
-   color: ghostwhite;
-   font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
-   font-weight: normal;
-   display: inline-block;
-
-}
-
 /* Style the navbar */
 #navbar {
    overflow: auto;
@@ -44,6 +36,7 @@ body::-webkit-scrollbar {
    border-bottom-style: dashed;
    border-bottom-color: rgb(255 69 0);
    transition: ease-in 0.1s;
+   position: fixed;
 }
 
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
@@ -66,10 +59,65 @@ body::-webkit-scrollbar {
    font-size: 20px;
 }
 
-#navbar #name:hover {
-   color: ghostwhite;
-   transition: 0.25s ease-in;
+/*Constant glowing and growing animation over logo */
+@keyframes logoglow {
+	0% {
+		color: rgba(255, 69, 0, 0.75);
+      font-size: 20px;
+	}
+
+	25% {
+		color: rgba(255, 69, 0, 1);
+      font-size: 21px;
+	}
+
+	50% {
+		color: rgba(255, 69, 0, 0.75);
+      font-size: 21px;
+	}
+
+	100% {
+		color: rgba(255, 69, 0, 0.75);
+      font-size: 20px;
+	}
 }
+
+@-webkit-keyframes logoglow {
+	0% {
+		color: rgba(255, 69, 0, 0.75);
+	}
+
+	25% {
+		color: rgba(255, 69, 0, 1);
+	}
+
+	50% {
+		color: rgba(255, 69, 0, 0.75);
+	}
+
+	100% {
+		color: rgba(255, 69, 0, 0.75);
+	}
+}
+
+.logo-glow {
+	animation: logoglow 2.5s;
+	-webkit-animation: logoglow 2.5s;
+	animation-direction: normal;
+	-webkit-animation-direction: normal;
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+   transition: all 2.5s ease
+}
+
+
+#name {
+   color: ghostwhite;
+   font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
+   font-weight: normal;
+   display: inline-block;
+}
+
 
 /* Navbar links */
 #navbar a {
@@ -152,6 +200,9 @@ body::-webkit-scrollbar {
    font-size: 18px;
 }
 
+#sections{
+   margin-top: 15dvh;
+}
 
 section {
    margin: 5dvh 10dvw;

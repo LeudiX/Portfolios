@@ -32,7 +32,7 @@
     <header>
         <div id="navbar">
             <!--<img id="logo" src="/imgs/logo12.png" alt="bussiness-logo">-->
-            <a id="name" href="https://github.com/LeudiX">
+            <a id="name" class="logo-glow" href="https://github.com/LeudiX">
               {%LeudiX%}
             </a>
             <a href="#contacts">#contacts</a>
@@ -47,61 +47,63 @@
         <div id="containerRow" class='col-md-10 col-sm-10'></div>
         <div class='col-md-1 col-sm-1'></div>
     </div>
-    <section id="home">
-        <div id="container1">
-            <img id="picture" src="/imgs/profile.jpeg" alt="profile-logo">
-            <h3 id="title1">
-                Hi, I'm LeudiX
-                <h5 id="subtitle1">
-                    a software engineer with some skills<br>
-                    in the development of games, webs and HCI systems...
+    <div id="sections">
+        <section id="home">
+            <div id="container1">
+                <img id="picture" src="/imgs/profile.jpeg" alt="profile-logo">
+                <h3 id="title1">
+                    Hi, I'm LeudiX
+                    <h5 id="subtitle1">
+                        a software engineer with some skills<br>
+                        in the development of games, webs and HCI systems...
+                    </h5>
+                </h3>
+                <h5 id="subtitle12">
+                    Do you wanna know me better?
+                    <br>
                 </h5>
+                <button id="cvdownload">See me CV </button>
+            </div>
+        </section>
+        <section id="projects">
+            <h3 id="title2">
+                #projects
             </h3>
-            <h5 id="subtitle12">
-                Do you wanna know me better?
-                <br>
+            <h5 id="subtitle2">
+                Some stuff that i've done and others that i'm working on...
             </h5>
-            <button id="cvdownload">See me CV </button>
-        </div>
-    </section>
-    <section id="projects">
-        <h3 id="title2">
-            #projects
-        </h3>
-        <h5 id="subtitle2">
-            Some stuff that i've done and others that i'm working on...
-        </h5>
-        <button id="projects1">View all</button>
-    </section>
-    <section id="skills">
-        <h3 id="title3">
-            #skills
-        </h3>
-        <h5 id="subtitle3">
-            Some of my habilities with tech stacks and frameworks...
-        </h5>
-        <button id="skills1">View all</button>
-    </section>
-    <section id="about">
-        <h3 id="title4">
-            #about-me
-        </h3>
-        <h5 id="subtitle4">
-            Just a common guy that love to make code stuffs...
-        </h5>
-        <button id="about1">View all</button>
-    </section>
-    <section id="contacts">
-        <h3 id="title5">
-            #contacts
-        </h3>
-        <h5 id="subtitle5">
-            I'm open to all kind of work opportunities. However,
-            if you want to chat, you can reach me at...
-        </h5>
-        <!-- Trigger/Open The Contact Modal -->
-        <button id="contacts1" type="button" data-bs-toggle="modal" data-bs-target="#contactModal">Contact me</button>
-    </section>
+            <button id="projects1">View all</button>
+        </section>
+        <section id="skills">
+            <h3 id="title3">
+                #skills
+            </h3>
+            <h5 id="subtitle3">
+                Some of my habilities with tech stacks and frameworks...
+            </h5>
+            <button id="skills1">View all</button>
+        </section>
+        <section id="about">
+            <h3 id="title4">
+                #about-me
+            </h3>
+            <h5 id="subtitle4">
+                Just a common guy that love to make code stuffs...
+            </h5>
+            <button id="about1">View all</button>
+        </section>
+        <section id="contacts">
+            <h3 id="title5">
+                #contacts
+            </h3>
+            <h5 id="subtitle5">
+                I'm open to all kind of work opportunities. However,
+                if you want to chat, you can reach me at...
+            </h5>
+            <!-- Trigger/Open The Contact Modal -->
+            <button id="contacts1" type="button" data-bs-toggle="modal" data-bs-target="#contactModal">Contact me</button>
+        </section>
+    </div>
     <!-- The Contact Modal -->
     <div class="modal fade" id="contactModal">
         <div class="modal-dialog modal-dialog-centered">

@@ -27,7 +27,7 @@ class Observer {
 // Create an array of settings
 const $settings = [
     {
-        url: '/backcodes/codelife.html',
+        url: '/js/animations.js',
         glow: true,
         speed: 25,
         wait: 0,
@@ -174,7 +174,14 @@ async function bgTerminalAnimationProcess() {
     await sleep(1.5* 60 * 1000);
 
     //Forcing bgTerminal animation execution according with 2nd part of 2nd process secuence
-    bgTerminal(`#terminal`, $settings[1],0)
+    try {
+        bgTerminal(`#terminal`, $settings[1],0)
+    } catch (error) {
+        throw console.error(error);
+    }finally{
+        console.log(`This is necesary to keep running the animation loop event`)
+    }
+       
 }
 
 //Create an observer to manage the animation queue

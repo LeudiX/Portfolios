@@ -22,12 +22,12 @@ const eligibilityCheckAnimation = () => {
     document.getElementById("svg-container").appendChild(circle);
 
     // animate the circle
-    setTimeout(() => {
+    function animate70 (){
         circle.setAttribute("cx", "70%");
-    }, 1000);
-    setTimeout(() => {
+    };
+   function animate30() {
         circle.setAttribute("cx", "30%");
-    }, 2000);
+    };
 };
 
 // document-gathering animation
@@ -42,19 +42,18 @@ const documentGatheringAnimation = () => {
     document.getElementById("svg-container").appendChild(rect);
 
     // animate the rectangle
-    setTimeout(() => {
+    function animate20() {
         rect.setAttribute("x", "20");
-    }, 1000);
-    setTimeout(() => {
+    };
+    function animate10(){
         rect.setAttribute("x", "10");
-    }, 2000);
+    };
 };
 
 
 //Step 4: 
 const svgContainer = document.getElementById("svg-container");
 
-setInterval(() => {
     // iterate through the procedures array
     procedures.forEach((procedure) => {
         // execute the procedure
@@ -82,4 +81,3 @@ setInterval(() => {
             svgContainer.appendChild(rect);
         }
     });
-}, 300000); // 5 minutes

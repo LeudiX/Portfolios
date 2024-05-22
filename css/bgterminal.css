@@ -48,6 +48,7 @@
 	position: fixed;
 	left: 4rem;
 	z-index: -1;
+	top: 4.5rem;
 }
 
 .bgterminal {
