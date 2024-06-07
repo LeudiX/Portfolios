@@ -61,52 +61,52 @@ body::-webkit-scrollbar {
 
 /*Constant glowing and growing animation over logo */
 @keyframes logoglow {
-	0% {
-		color: rgba(255, 69, 0, 0.75);
+   0% {
+      color: rgba(255, 69, 0, 0.75);
       font-size: 20px;
-	}
+   }
 
-	25% {
-		color: rgba(255, 69, 0, 1);
+   25% {
+      color: rgba(255, 69, 0, 1);
       font-size: 21px;
-	}
+   }
 
-	50% {
-		color: rgba(255, 69, 0, 0.75);
+   50% {
+      color: rgba(255, 69, 0, 0.75);
       font-size: 21px;
-	}
+   }
 
-	100% {
-		color: rgba(255, 69, 0, 0.75);
+   100% {
+      color: rgba(255, 69, 0, 0.75);
       font-size: 20px;
-	}
+   }
 }
 
 @-webkit-keyframes logoglow {
-	0% {
-		color: rgba(255, 69, 0, 0.75);
-	}
+   0% {
+      color: rgba(255, 69, 0, 0.75);
+   }
 
-	25% {
-		color: rgba(255, 69, 0, 1);
-	}
+   25% {
+      color: rgba(255, 69, 0, 1);
+   }
 
-	50% {
-		color: rgba(255, 69, 0, 0.75);
-	}
+   50% {
+      color: rgba(255, 69, 0, 0.75);
+   }
 
-	100% {
-		color: rgba(255, 69, 0, 0.75);
-	}
+   100% {
+      color: rgba(255, 69, 0, 0.75);
+   }
 }
 
 .logo-glow {
-	animation: logoglow 2.5s;
-	-webkit-animation: logoglow 2.5s;
-	animation-direction: normal;
-	-webkit-animation-direction: normal;
-	animation-iteration-count: infinite;
-	-webkit-animation-iteration-count: infinite;
+   animation: logoglow 2.5s;
+   -webkit-animation: logoglow 2.5s;
+   animation-direction: normal;
+   -webkit-animation-direction: normal;
+   animation-iteration-count: infinite;
+   -webkit-animation-iteration-count: infinite;
    transition: all 2.5s ease
 }
 
@@ -120,8 +120,8 @@ body::-webkit-scrollbar {
 
 
 /* Navbar links */
-#navbar a {
-   float: right;
+#navbar li a {
+   float: right !important;
    margin-inline-end: 0.5rem;
    color: ghostwhite;
    text-align: center;
@@ -200,13 +200,14 @@ body::-webkit-scrollbar {
    font-size: 18px;
 }
 
-#sections{
+#sections {
    margin-top: 15dvh;
 }
 
 section {
    margin: 5dvh 10dvw;
-   border-style: dashed;
+   border-bottom-style: dashed;
+   /*border-style: dashed;*/
    border-color: rgb(255 69 0);
    padding: 5vh 10vh;
    background-color: rgb(18, 43, 105, 0.5);
@@ -249,13 +250,29 @@ section {
    color: #fff;
 }
 
-/*CSS Boton scroll Go to up*/
-
+/*Footer styles*/
 /*********************************/
-/*Responsive Web Treament with custom media queries*/
+footer {
+   margin: 5dvh 10dvw;
+   /*border-style: dashed;*/
+   /*border-bottom-style: dashed;*/
+   border-color: rgb(255 69 0);
+   padding: 5vh 10vh;
+   font-size: 2.5vh;
+   font-weight: 400;
+   font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
+   color: #fff;
+}
 
+footer .footer-row * {
+   text-align: center;
+   margin-block-start: 2vh;
+   margin-block-end: 2vh;
+}
 
-/*Responsive Web Treament with custom media queries*/
+#social-icons a {
+   margin-inline-start: 2vh;
+}
 
 /**********************************/
 
@@ -297,7 +314,8 @@ section {
 /* Modal Content */
 .modal-content {
    color: ghostwhite !important;
-   font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;;
+   font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
+   ;
    position: relative;
    background-color: #122b69 !important;
    margin: auto;
