@@ -65,7 +65,21 @@
     <div id="sections">
         <section id="home">
             <div id="container1">
-                <img id="picture" src="/imgs/profile.jpeg" alt="profile-logo">
+                <!--Carousel Added for Profile images sliding-->
+                <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                    <div class="carousel-inner rounded-circle mb-2">
+                      <div class="carousel-item active" data-bs-interval="20000">
+                        <img src="/imgs/profile.jpeg" class="img-fluid d-block w-100" alt="Profile Logo 1">
+                      </div>
+                      <div class="carousel-item" data-bs-interval="20000">
+                        <img src="/imgs/profile0.png " class="img-fluid d-block w-100" alt="Profile Logo 2">
+                      </div>
+                      <div class="carousel-item" data-bs-interval="20000">
+                        <img src="/imgs/profile5-1.jpg" class="img-fluid d-block w-100" alt="Profile Logo 3">
+                      </div>
+                    </div>
+                  </div>
+                <!--Carousel Ended-->
                 <h3 id="title1">
                     Hi, I'm LeudiX
                     <h5 id="subtitle1">

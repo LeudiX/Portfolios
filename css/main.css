@@ -136,7 +136,7 @@ body::-webkit-scrollbar {
    transition: 0.25s ease-in;
 }
 
-#picture {
+.carousel.slide {
    border-radius: 50%;
    width: 30%;
    max-width: 100%;
@@ -201,7 +201,7 @@ body::-webkit-scrollbar {
 }
 
 #sections {
-   margin-top: 15dvh;
+   margin-top: 10dvh;
 }
 
 section {
