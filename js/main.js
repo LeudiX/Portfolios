@@ -29,13 +29,13 @@ navbar.style.width = "100%";
 window.onscroll = function () { StickyNavbarAndScrollFunction() };
 
 // Get the offset position of the navbar
-var sticky = navbar.offsetTop;
+const sticky = navbar.offsetTop;
 
 // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
 function StickyNavbarAndScrollFunction() {
 
     if (window.scrollY > sticky) {
-        /*logo.setAttribute("src", "/imgs/logo12-bgnew.png");*/
+       
         navbar.style.backgroundColor = "#122b69";
         navbar.style.borderBottomStyle = "none";
         navbar.style.borderBottomColor = "none";
@@ -43,7 +43,6 @@ function StickyNavbarAndScrollFunction() {
         mybutton.style.display = "block";
 
     } else {
-        /*logo.setAttribute("src", "/imgs/logo12.png");*/
         navbar.style.backgroundColor = "#081b4b";
         navbar.style.borderBottomStyle = "dashed";
         navbar.style.borderBottomColor = "rgb(255 69 0)";
@@ -59,3 +58,16 @@ function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
+/*****************************************************************************/
+/*CLOSING NAVBAR MENU ONCE USER SELECT ONE OF THE SECTIONS OR GO OUT
+                        USING JQUERY*/
+/*****************************************************************************/
+//Once the user clicks on the menu item, then the navbar close it's automatically
+$('.navbar-nav>li>a').on('click', function(){
+    $('.navbar-collapse').collapse('hide');
+});
+
+//When the user clicks in any  part of the body out of the menu button,then the navbar close it's automatically
+$('body').on('click', function(){
+    $('.navbar-collapse').collapse('hide');
+});

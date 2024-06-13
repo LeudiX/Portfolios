@@ -37,6 +37,7 @@ body::-webkit-scrollbar {
    border-bottom-color: rgb(255 69 0);
    transition: ease-in 0.1s;
    position: fixed;
+   z-index: 2;
 }
 
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
@@ -121,10 +122,10 @@ body::-webkit-scrollbar {
 
 /* Navbar links */
 #navbar li a {
-   float: right !important;
+   display: block;
    margin-inline-end: 0.5rem;
    color: ghostwhite;
-   text-align: center;
+   text-align: left;
    padding: 10px;
    text-decoration: none;
    font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
