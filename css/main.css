@@ -140,6 +140,9 @@ body::-webkit-scrollbar {
 .social-icons{
    list-style: none;
    display: block;
+   position: fixed;
+   bottom: 15vh;
+   font-size: x-large;
 }
 
 .carousel.slide {
@@ -214,7 +217,6 @@ body::-webkit-scrollbar {
 section {
    margin: 5dvh 10dvw;
    border-bottom-style: dashed;
-   /*border-style: dashed;*/
    border-color: rgb(255 69 0);
    padding: 5vh 10vh;
    background-color: rgb(18, 43, 105, 0.5);
@@ -238,12 +240,12 @@ section {
    position: fixed;
    width: 40px;
    height: 40px;
-   bottom: 15vh;
-   right: 30px;
+   bottom: 16vh;
+   right: 25px;
    font-size: 12px;
    font-weight: 400;
    font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
-   border-color: rgb(255 69 0);
+   border-color: rgb(14 102 236);
    outline: none;
    background-color: transparent;
    transition: all 0.5s ease;
@@ -253,7 +255,7 @@ section {
 }
 
 #myBtn:hover {
-   background-color: rgb(255 69 0);
+   background-color: rgb(14 102 236);
    color: #fff;
 }
 
@@ -261,8 +263,6 @@ section {
 /*********************************/
 footer {
    margin: 5dvh 10dvw;
-   /*border-style: dashed;*/
-   /*border-bottom-style: dashed;*/
    border-color: rgb(255 69 0);
    padding: 5vh 10vh;
    font-size: 2.5vh;
@@ -273,8 +273,7 @@ footer {
 
 footer .footer-row * {
    text-align: center;
-   margin-block-start: 2vh;
-   margin-block-end: 2vh;
+   line-height: 1.5;
 }
 
 #social-icons a {
@@ -322,7 +321,6 @@ footer .footer-row * {
 .modal-content {
    color: ghostwhite !important;
    font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
-   ;
    position: relative;
    background-color: #122b69 !important;
    margin: auto;
