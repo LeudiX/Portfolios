@@ -10,12 +10,13 @@
            __/ |                               
           |___/                                
   -->
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>LeudiX Portfolio</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    
+
     <!--Devicons Library reference-->
     <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicons/1.8.0/css/devicons.min.css">
@@ -23,7 +24,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
-    <!-- Latest compiled and minified CSS -->
+    <!--AOS Library for cool scroll animations-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!--Latest compiled and minified CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel='stylesheet' type='text/css' media='screen' href='/css/main.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='/css/bgterminal.css'>
@@ -67,17 +70,28 @@
         <div id="containerRow" class='col-md-10 col-sm-10 col-10'></div>
         <div class='col-md-1 col-sm-1'></div>
     </div>
+    <div class="left-social position-absolute bottom-0 start-0">
+        <ul class="social-icons">
+            <li><a href="https://github.com/LeudiX" target="_blank"><i class="devicon-github-original"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/leudi-xavier-9895421b7/" target="_blank"><i
+                        class="devicon-linkedin-plain"></i></a></li>
+            <li><a href="https://www.instagram.com/leudi_xavier/" target="_blank"><i
+                        class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.gmail.com/leudi_xavier/" target="_blank"><i class="fab fa-google"></i></a>
+            </li>
+        </ul>
+    </div>
     <div id="sections">
         <section id="home">
-            <div id="container1">
+            <div id="hero" data-aos="fade-up" data-aos-duration="3000">
                 <!--Carousel Added for Profile images sliding-->
                 <div id="carouselPictures" class="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div class="carousel-inner rounded-circle mb-2">
                         <div class="carousel-item active" data-bs-interval="20000">
-                            <img src="/imgs/profile.jpeg" class="img-fluid d-block w-100" alt="Profile Logo 1">
+                            <img src="/imgs/profile0.png" class="img-fluid d-block w-100" alt="Profile Logo 1">
                         </div>
                         <div class="carousel-item" data-bs-interval="20000">
-                            <img src="/imgs/profile0.png " class="img-fluid d-block w-100" alt="Profile Logo 2">
+                            <img src="/imgs/profile.jpeg" class="img-fluid d-block w-100" alt="Profile Logo 2">
                         </div>
                         <div class="carousel-item" data-bs-interval="20000">
                             <img src="/imgs/profile5-1.jpg" class="img-fluid d-block w-100" alt="Profile Logo 3">
@@ -86,16 +100,16 @@
                 </div>
                 <!--Carousel Ended-->
                 <h3 id="title1">
-                    Hi, I'm LeudiX
-                    <h5 id="subtitle1">
-                        a software engineer with skills<br>
-                        in the development of games, bots, webs and HCI systems...
-                    </h5>
+                    <span id="text"></span>
+                    <h6 id="subtitle1">
+                        I've been coding for a while. Doing engineering stuffs<br>
+                        developing some games, bots, webs apps and HCI systems...
+                    </h6>
                 </h3>
-                <h5 id="subtitle12">
+                <h6 id="subtitle12">
                     Do you wanna know me better?
                     <br>
-                </h5>
+                </h6>
                 <button id="cvdownload">See me CV </button>
             </div>
         </section>
@@ -103,37 +117,37 @@
             <h3 id="title4">
                 #about-me
             </h3>
-            <h5 id="subtitle4">
+            <h6 id="subtitle4">
                 Just a common guy that love to make code stuffs...
-            </h5>
+            </h6>
             <button id="about1">View all</button>
         </section>
         <section id="projects">
             <h3 id="title2">
                 #projects
             </h3>
-            <h5 id="subtitle2">
+            <h6 id="subtitle2">
                 Some stuff that i've done and others that i'm working on...
-            </h5>
+            </h6>
             <button id="projects1">View all</button>
         </section>
         <section id="skills">
             <h3 id="title3">
                 #skills
             </h3>
-            <h5 id="subtitle3">
+            <h6 id="subtitle3">
                 Some of my habilities with tech stacks and frameworks...
-            </h5>
+            </h6>
             <button id="skills1">View all</button>
         </section>
         <section id="contacts">
             <h3 id="title5">
                 #contacts
             </h3>
-            <h5 id="subtitle5">
+            <h6 id="subtitle5">
                 I'm open to all kind of work opportunities. However,
                 if you want to chat, you can reach me at...
-            </h5>
+            </h6>
             <!-- Trigger/Open The Contact Modal -->
             <button id="contacts1" type="button" data-bs-toggle="modal" data-bs-target="#contactModal">Contact
                 me</button>
@@ -143,7 +157,7 @@
         <div class="footer-row">
             <h5>Logo</h5>
             <div id="phrase">Phrase</div>
-            <div id="social-icons">
+            <div id="social-icons2">
                 <a href="http://github.com" target="_blank" rel="noopener noreferrer">
                     <i class=""></i>
                     Github
@@ -202,16 +216,30 @@
     <button onclick="topFunction()" id="myBtn" title="Go to top">
         <i class="fa fa-angle-double-up"></i>
     </button>
+
+
+    <!--Loading AOS Animations-->
+    <!--Reference to AOS Library for cool scroll animations-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 <!--Placing the js files add the end so the pages load faster-->
 <!-- Latest Compilated javascript library -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!--JQuery reference from external repository-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!--Font Awesome reference from external site-->
 <script src="https://kit.fontawesome.com/b62466ad95.js" crossorigin="anonymous"></script>
+<!--Using Typed Library for cool animations over text content-->
+<script src="https://unpkg.com/typed.js@2.0.132/dist/typed.umd.js"></script>
+<!--Local Scripts-->
 <script type="text/javascript" src="/js/jquery.bgterminal.min.js"></script>
 <script type="text/javascript" src='/js/mybgterminal.js'></script>
 <script type="text/javascript" src='/js/main.js'></script>
 <script type="text/javascript" src='/js/modals.js'></script>
+<script type="text/javascript" src='/js/typed.js'></script>
 
 </html>

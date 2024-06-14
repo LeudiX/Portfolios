@@ -137,6 +137,11 @@ body::-webkit-scrollbar {
    transition: 0.25s ease-in;
 }
 
+.social-icons{
+   list-style: none;
+   display: block;
+}
+
 .carousel.slide {
    border-radius: 50%;
    width: 30%;
@@ -168,6 +173,7 @@ body::-webkit-scrollbar {
    font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
    font-weight: lighter;
    text-align: center;
+   line-height: 1.5;
 }
 
 #cvdownload,
