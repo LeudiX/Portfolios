@@ -8,7 +8,6 @@
           __/ |                               
          |___/                                
  */
-// Observer pattern implementation
 // Observer pattern implementation Following SOLID Principles
 class Observer {
     constructor() {
