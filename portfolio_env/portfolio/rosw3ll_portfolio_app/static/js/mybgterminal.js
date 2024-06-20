@@ -27,7 +27,7 @@ class Observer {
 // As the Django backend was added,now i need to render the js and the files by the template and then
 //call it by reference here in the settings
 const bgTerminalJsPath = STATIC_URL + 'static/js/jquery.bgterminal.js';
-const animJsPath =  STATIC_URL + 'static/js/animation.js';
+const animJsPath =  STATIC_URL + 'static/backcodes/animations.js';
 const htmlTempPath = STATIC_URL + 'static/backcodes/openworkca.html';
 
 const $settings = [
