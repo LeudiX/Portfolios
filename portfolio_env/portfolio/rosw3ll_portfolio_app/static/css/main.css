@@ -220,7 +220,6 @@ section {
    border-color: rgb(255 69 0);
    padding: 5vh 10vh;
    background-color: rgb(18, 43, 105, 0.5);
-   /*backdrop-filter: blur(1px);*/
 }
 
 /*CANVAS BACKGROUND SECTION*/
@@ -261,12 +260,13 @@ section {
 
 /*Footer styles*/
 /*********************************/
-footer {
+footer.foo {
    margin: 5dvh 10dvw;
    border-color: rgb(255 69 0);
    padding: 5vh 10vh;
+   background-color: rgb(18, 43, 105, 0.5);
    font-size: 2.5vh;
-   font-weight: 400;
+   font-weight: lighter;
    font-family: 'Fira Code', Tahoma, Geneva, Verdana, sans-serif;
    color: #fff;
 }
