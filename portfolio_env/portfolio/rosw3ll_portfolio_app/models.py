@@ -44,7 +44,7 @@ class Quote(models.Model):
     
 class SocialLink(models.Model):
     """
-    Model to store me social media links
+    Model to store my social media links
     """
     platform = models.CharField(max_length=50,choices=(('Github','Github'),('Instagram','Instagram'),('LinkedIn','LinkedIn'),('Gmail','Gmail')))
     url = models.URLField()
