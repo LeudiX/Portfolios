@@ -19,7 +19,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
     <!--Devicons Library reference-->
-    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicons/1.8.0/css/devicons.min.css">
     <!--Fonts Google APIs-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,10 +80,8 @@
     <div class="left-social position-absolute start-0 fixed-bottom">
         <ul class="social-icons">
             <li><a href="https://github.com/LeudiX" target="_blank"><i class="devicon-github-original"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/leudi-xavier-9895421b7/" target="_blank"><i
-                        class="devicon-linkedin-plain"></i></a></li>
-            <li><a href="https://www.instagram.com/leudi_xavier/" target="_blank"><i class="fab fa-instagram"></i></a>
-            </li>
+            <li><a href="https://www.linkedin.com/in/leudi-xavier-9895421b7/" target="_blank"><i class="devicon-linkedin-plain"></i></a></li>
+            <li><a href="https://www.instagram.com/leudi_xavier/" target="_blank"><i class="fab fa-instagram"></i></a></li>
             <li><a href="https://www.gmail.com/leudi_xavier/" target="_blank"><i class="fab fa-google"></i></a>
             </li>
         </ul>
@@ -166,7 +164,7 @@
     <footer>
         <div class="footer-row row justify-content-md-center">
             <div class="quotes" style="text-align: justify;">
-                <h6><span id="quotes"></span></h6>
+                <h6 id="quotes">HeroMessage</h6>
             </div>
             <div class="copyright">
                 <h6>Handcrafted by LeudiX</h6>
@@ -190,7 +188,7 @@
                         <div class="column">
                             <form action="/action_page.php" autocomplete="off">
                                 <label for="femail">Email</label>
-                                <input type="email" id="femail" name="email" placeholder="Your email..">
+                                <input type="email" id="femail" name="email" autocomplete="email" placeholder="Your email..">
                                 <label for="fsubject">Subject</label>
                                 <input type="text" id="fsubject" name="subject" placeholder="Hi!..">
                                 <label for="message">Message</label>
