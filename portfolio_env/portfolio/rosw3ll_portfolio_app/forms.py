@@ -3,7 +3,7 @@ from .models import MyProjects,MySkills,Quote,SocialLink
 
 class ProjectsForm(forms.Form):
     """
-    Form to create or edit my projects
+    Form to create or edit my Projects info
     """
     class Meta:
         model= MyProjects
@@ -11,7 +11,7 @@ class ProjectsForm(forms.Form):
         
 class SkillsForm(forms.Form):
     """
-    Form to create or edit my skills
+    Form to create or edit my skills info
     """
     class Meta:
         model= MySkills
