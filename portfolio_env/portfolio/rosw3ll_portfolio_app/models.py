@@ -6,13 +6,19 @@ from django.contrib.auth.models import AbstractUser,Group
 class MyUser(AbstractUser):
     """
     Custom User model to store additional info about me
+    Important!!!!: If you are having problems with your custom user model,
+    when applying migrations(saving your user model) u know, errors like 
+    (Reverse accessor or InconsistentMIgrationHistory do the following steps)
+    
+    1- For avoid Reverse Accessor error, just add a reference to your model on settings file with this:
+        AUTH_USER_MODEL = 'AppName.YourCustomUserModelName'
+    2-If u keep having problems with 2nd error(InconsistentMigrationHistory), just go to global urls
+    and comment>> #path('admin/', admin.site.urls), and also in settings.py comment  on INSTALLED_APPS>> #'django.contrib.admin', 
+    3-Then run python -m manage makemigrations
+    4-Uncomment everything and again run the migrations>> python manage.py migrate
     """
+    address = models.CharField(max_length=100, blank=True)
     bio = models.TextField(blank=True,null=True,help_text="A brief bio about me.")
-    groups = models.ManyToManyField(Group,verbose_name= 'groups',related_name='my_user_set',blank=True,help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.')
-
-    class Meta:
-       # ... other Meta options ...
-       swappable = 'AUTH_USER_MODEL'
 
 class MySkills(models.Model):
     """
