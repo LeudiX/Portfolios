@@ -31,13 +31,13 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'rosw3ll_portfolio_app',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rosw3ll_portfolio_app',
 ]
 
 MIDDLEWARE = [
@@ -122,7 +122,12 @@ STATICFILES_DIRS = [
     BASE_DIR / "rosw3ll_portfolio_app/static/" #Adding my custom route to the static files in the project
 ] 
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'rosw3ll_portfolio_app.MyUser'

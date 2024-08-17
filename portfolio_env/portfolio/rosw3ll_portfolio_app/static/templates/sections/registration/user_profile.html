@@ -1,0 +1,34 @@
+{%extends 'base.html'%}
+{%block content%}
+<h2>My Profile</h2>
+<style>
+    /* Add your CSS styles here */
+    .errors {
+      border: 1px solid red;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+    .errors ul {
+      list-style: none;
+      padding: 0;
+    }
+  </style>
+<h3>Welcome again {{user.username}}</h3>
+{%if form.errors%}
+<div class="errors">
+    <p>Please, correct the following errors:</p>
+    <ul>
+        {%for field in form %}
+            {%for error in field.errors%}
+                <li>{{error}}</li>
+            {%endfor%}
+        {%endfor%}
+    </ul>
+</div>
+{%endif%}
+<form method="post">
+    {%csrf_token%}
+    {{form.as_p}}
+    <button type="submit">Save Changes </button>
+</form>
+{%endblock%}

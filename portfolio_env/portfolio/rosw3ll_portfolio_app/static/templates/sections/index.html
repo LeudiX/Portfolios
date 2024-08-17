@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+  <section id="home">
+    <div id="hero" data-aos="fade-up" data-aos-duration="3000">
+      <!-- Carousel Added for Profile images sliding -->
+      <div id="carouselPictures" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner rounded-circle mb-2">
+          <div class="carousel-item active" data-bs-interval="20000">
+            <img src="{% static '/imgs/profile0.png' %}" class="img-fluid d-block w-100" alt="Profile Logo 1" />
+          </div>
+          <div class="carousel-item" data-bs-interval="20000">
+            <img src="{% static '/imgs/profile.jpeg' %}" class="img-fluid d-block w-100" alt="Profile Logo 2" />
+          </div>
+          <div class="carousel-item" data-bs-interval="20000">
+            <img src="{% static '/imgs/profile5-1.jpg' %}" class="img-fluid d-block w-100" alt="Profile Logo 3" />
+          </div>
+        </div>
+      </div>
+      <!-- Carousel Ended -->
+      <h3 id="title1">
+        <span id="text"></span>
+        <h6 id="subtitle1">
+          I've been coding for a while. Doing engineering stuffs<br />
+          developing some games, bots, webs apps and HCI systems...
+        </h6>
+      </h3>
+      <h6 id="subtitle12">
+        Do you wanna know me better?
+        <br />
+      </h6>
+      <button id="cvdownload">See me CV</button>
+    </div>
+  </section>
+  <section id="about">
+    <h3 id="title4">#about-me</h3>
+    <h6 id="subtitle4">Just a common guy that love to make code stuffs...</h6>
+    <button id="about1">View all</button>
+  </section>
+  <section id="projects">
+    <h3 id="title2">#projects</h3>
+    <!-- <h6 id="subtitle2">
+        Some stuff that i've done and others that i'm working on...
+    </h6>
+    <button id="projects1">View all</button> -->
+    {% for p in projects %}
+      <!-- Projects info displayed here!!! -->
+    {% endfor %}
+    {% if is_paginated %}
+      <!-- Pagination here -->
+    {% else %}
+
+    {% endif %}
+  </section>
+  <section id="skills">
+    <h3 id="title3">#skills</h3>
+    <h6 id="subtitle3">Some of my habilities with tech stacks and frameworks...</h6>
+    <button id="skills1">View all</button>
+  </section>
+  <section id="contacts">
+    <h3 id="title5">#contacts</h3>
+    <h6 id="subtitle5">I'm open to all kind of work opportunities. However, if you want to chat, you can reach me at...</h6>
+    <!-- Trigger/Open The Contact Modal -->
+    <button id="contacts1" type="button" data-bs-toggle="modal" data-bs-target="#contactModal">Contact me</button>
+  </section>
+{% endblock %}

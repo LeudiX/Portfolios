@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser,Group
 
 
 # Create your models here.
@@ -8,6 +8,11 @@ class MyUser(AbstractUser):
     Custom User model to store additional info about me
     """
     bio = models.TextField(blank=True,null=True,help_text="A brief bio about me.")
+    groups = models.ManyToManyField(Group,verbose_name= 'groups',related_name='my_user_set',blank=True,help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.')
+
+    class Meta:
+       # ... other Meta options ...
+       swappable = 'AUTH_USER_MODEL'
 
 class MySkills(models.Model):
     """

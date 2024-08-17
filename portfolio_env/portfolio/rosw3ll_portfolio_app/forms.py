@@ -1,5 +1,5 @@
 from django import forms
-from .models import MyProjects,MySkills,Quote,SocialLink
+from .models import MyProjects,MySkills,Quote,SocialLink,MyUser
 
 class ProjectsForm(forms.Form):
     """
@@ -33,3 +33,18 @@ class SocialForm(forms.Form):
         model=SocialLink
         fields = ['platform','url']
         
+class UserCreationForm(forms.Form):
+    """
+    Form to create or edit my personal info
+    """
+    class Meta:
+        model = MyUser
+        fields = ['bio']
+        
+class UserForm(forms.ModelForm):
+    """
+    Form to add user info(username,password)
+    """
+    class Meta:
+        model = MyUser
+        fields = ['username','email']                
