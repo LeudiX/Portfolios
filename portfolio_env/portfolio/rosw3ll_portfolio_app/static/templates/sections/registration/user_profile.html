@@ -14,6 +14,7 @@
     }
   </style>
 <h3>Welcome again {{user.username}}</h3>
+<h3>Your email is {{user.email}}</h3>
 {%  if user.is_authenticated %}
             <p>You are logged in as {{ request.user }}. Click here to <a href="{% url 'logout' %}">log out</a></p>
         {% endif %}
