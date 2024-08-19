@@ -7,6 +7,6 @@
     <button type="submit">Login</button>
   </form>
   {% if form.errors %}
-    <p>Invalid username or password</p>
+    <p>{{message}}</p>
   {% endif %}
-{% endblock %}
+{% endblock content %}

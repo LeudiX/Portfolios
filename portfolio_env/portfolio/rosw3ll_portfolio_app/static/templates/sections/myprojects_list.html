@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<section id="projects">
+    <h3 id="title2">#projects</h3>
+    <!-- <h6 id="subtitle2">
+        Some stuff that i've done and others that i'm working on...
+    </h6>
+    <button id="projects1">View all</button> -->
+    <ul>
+        {% for p in projects %}
+        <!-- Projects info displayed here!!! -->
+        <li>
+            <a href="details/">
+                {{p.id}}
+                Image:{{p.image}}
+                Title:{{p.title}}
+                Description:{{p.description}}
+                Link:{{p.link}}
+                Skills:{{p.skills}}
+            </a>
+        </li>
+        <!-- If object_list is empty -->  
+        {% empty %}  
+        <li class="nav-item">No projects found yet!!!</li>  
+        {% endfor %}
+    </ul>
+    
+</section>
+{% endblock content %}

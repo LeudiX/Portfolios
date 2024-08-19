@@ -2,44 +2,44 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render,redirect,get_object_or_404
 from django.template import loader
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.views import LoginView,LogoutView
-from django.contrib.auth.decorators import login_required
+#from django.contrib.auth.views import LoginView,LogoutView
+from django.contrib.auth import login,authenticate,logout
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView
 from django.urls import reverse_lazy
-from .models import MyUser,MyProjects,MySkills,Quote,SocialLink
-from .forms import ProjectsForm,SkillsForm,QuoteForm,SocialForm,UserCreationForm,UserForm
+from .models import MyProjects,MySkills,Quote,SocialLink
+from .forms import ProjectsForm,SkillsForm,QuoteForm,SocialForm,CustomUserCreationForm,LoginForm
 
 
 # Create your views here.
 from django.http import HttpResponse
 
-templates_base_path = 'roswell_portfolio__app/static/templates'
+templates_base_path = 'rosw3ll_portfolio__app/static/templates'
 
 #Simple function based view to resolve the index(root) page of my portfolio 
 def index(request):
     name = 'LeudiX'
-    template = loader.get_template('index.html')
+    template = loader.get_template('base.html')
      
     context = {
                'leudix':name,
             }
     return HttpResponse(template.render(context,request))
     
-class HomeView(ListView):
+class ProjectListView(ListView):
     """
     View for the home page of the portfolio
     """
     model = MyProjects
-    template_name = templates_base_path +'/index.html'
+    template_name =  'sections/myprojects_list.html'
     context_object_name= 'projects'
-    paginate_by = 3 #Adjusting the number of projects per page
+    #paginate_by = 3 #Adjusting the number of projects per page
  
 class ProjectDetailView(DetailView):
     """
     View to show details of a specific project
     """
     model = MyProjects
-    template_name = templates_base_path + '/sections/project_detail.html'
+    template_name = 'sections/project_detail.html'
 
 class ProjectCreateView(LoginRequiredMixin, CreateView):
     """
@@ -47,7 +47,7 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
     """
     model = MyProjects
     form_class = ProjectsForm
-    template_name = templates_base_path + '/sections/project_form.html'
+    template_name = 'sections/project_form.html'
     success_url = reverse_lazy('templates_base_path:projects')
     
 class ProjectUpdateView(LoginRequiredMixin,UpdateView):
@@ -56,7 +56,7 @@ class ProjectUpdateView(LoginRequiredMixin,UpdateView):
     """
     model = MyProjects
     form_class = ProjectsForm
-    template_name = templates_base_path +'/sections/project_form.html'
+    template_name = 'sections/project_form.html'
     success_url = reverse_lazy('templates_base_path:projects')
     
 class ProjectDeleteView(LoginRequiredMixin,DeleteView):
@@ -64,7 +64,7 @@ class ProjectDeleteView(LoginRequiredMixin,DeleteView):
     View to delete a project
     """
     model = MyProjects
-    template_name = templates_base_path +'/sections/project_delete_confirmation.html'
+    template_name = 'sections/project_delete_confirmation.html'
     success_url = reverse_lazy('templates_base_path:projects')
        
 #User Authentication Views
@@ -72,38 +72,43 @@ class SignUpView(CreateView):
     """
     View for user sign up.    
     """
-    form_class = UserCreationForm
+    form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
-    template_name = templates_base_path + '/sections/registration/signup.html'
-    
+    template_name = 'sections/registration/signup.html'
+
+"""
 class CustomLoginView(LoginView):
-    """
+  
     Custom Login View
-    """ 
-    template_name = templates_base_path + '/sections/registration/login.html'
+  
+    template_name = 'sections/registration/login.html'
     
     def form_valid(self, form: AuthenticationForm) -> HttpResponse:
         return super().form_valid(form) 
-    
-class CustomLogoutView(LogoutView):
-    """
-    Custom Logout View
-    """
-    next_page = '/'
-    
-#Decorated view for profile management(example:update user profile)
-@login_required
-def user_profile(request):
+"""    
+#Login Proccessing
+def login_page(request):
     """
     View to display and update the user's profile
     """        
-    user = request.user
-    if(request.method=="POST"):
-        form =  UserForm(request.POST,instance = user)
+    form = LoginForm()
+    message = ''
+
+    if request.method =='POST':
+        form = LoginForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('user_profile')
+            user = authenticate(#Returns the user with the credentials provided
+                email =  form.cleaned_data['email'],
+                password =  form.cleaned_data['password'],
+            )
+        if user is not None:
+            login(request,user) #Authenticate the user
+            message = f'Hello {user.username}!! You  have been logged in'
         else:
-         form = UserForm(instance = user)
-    return render(request, templates_base_path + '/sections/registration/user_profile.html',{'form':form})         
-        
+            message = 'Wrong username or password!!'        
+    return render(request, 'sections/registration/user_profile.html',{'form':form,'message':message})         
+
+#Logout Processing
+def logout_user(request):
+    logout(request)
+    return redirect('login')
