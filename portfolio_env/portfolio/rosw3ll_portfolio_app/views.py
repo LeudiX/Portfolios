@@ -105,8 +105,8 @@ def login_page(request):
             login(request,user) #Authenticate the user
             message = f'Hello {user.username}!! You  have been logged in'
         else:
-            message = 'Wrong username or password!!'        
-    return render(request, 'sections/registration/user_profile.html',{'form':form,'message':message})         
+            message = 'Wrong email or password!!'        
+    return render(request, 'sections/registration/login.html',{'form':form,'message':message})         
 
 #Logout Processing
 def logout_user(request):

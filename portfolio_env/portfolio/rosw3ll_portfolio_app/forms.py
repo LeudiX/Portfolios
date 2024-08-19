@@ -40,7 +40,7 @@ class SocialForm(forms.Form):
         
 class CustomUserCreationForm(UserCreationForm):
     """
-    Form to create or edit my personal info
+    Form to create my user
     """
     password1 = forms.CharField(widget=forms.PasswordInput)
     password2 = forms.CharField(label='Confirm your password',widget=forms.PasswordInput)
@@ -92,7 +92,7 @@ class CustomUserChangeForm(UserChangeForm):
         
 class LoginForm(forms.Form):
     """
-    Form to add user info(username,password)
+    Form to add user info(email,password)
     """
     email = forms.EmailField(max_length=63,widget=forms.EmailInput)
     password =  forms.CharField(max_length=63,widget=forms.PasswordInput)               

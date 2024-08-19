@@ -130,4 +130,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'rosw3ll_portfolio_app.MyUser'
+#Registering My Custom User Model
+AUTH_USER_MODEL = 'rosw3ll_portfolio_app.MyUser' 
