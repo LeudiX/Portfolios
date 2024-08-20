@@ -1,5 +1,6 @@
-from django.db import models
 from django.contrib.auth.models import AbstractBaseUser,PermissionsMixin
+from django.db import models
+from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 from .managers import CustomUserManager
 
@@ -19,34 +20,34 @@ class MyUser(AbstractBaseUser,PermissionsMixin):
     4-Uncomment everything and again run the migrations>> python manage.py migrate
     """
     username = None
-    email = models.EmailField(('email_address'),unique = True, max_length=200)
-    date_joined = models.DateTimeField(default=timezone.now)
-    is_staff = models.BooleanField(default=False)
+    email = models.EmailField(_("email_address"),unique = True, max_length=200)
     is_active = models.BooleanField(default=True)
-    address = models.CharField(max_length=100, blank=True)
+    is_staff = models.BooleanField(default=False)
+    date_joined = models.DateTimeField(default=timezone.now)
     bio = models.TextField(blank=True,null=True,help_text="A brief bio about me.")
     
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
     
     objects  = CustomUserManager()
+    
+    def _str_(self):
+        return self.email
     
     def has_perm(self,perm,obj=None):
         #"Does the user have  specific permission?"
         #Simplest possible answer: Yes, always
         return True
     
+    
     def is_staff(self):
         #Is the user member or staff?
-        return self.staff
+        return self.is_staff()
     
     @property
     def is_admin(self):
         #Is the user admin member?
-        return self.admin
-    
-    def _str_self(self):
-        return self.email
+        return self.is_admin
 
 class MySkills(models.Model):
     """
